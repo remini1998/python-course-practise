@@ -16,24 +16,19 @@ def bubble_sort(input_list: List[int]):
 
 
 @timer
-def insert_sort(input_list: List[int]):
+def selection_sort(input_list: List[int]):
     input_list = input_list.copy()
-    result = []
-    while input_list.__len__() > 0:
-        min_index = 0
-        for i in range(1, input_list.__len__()):
-            if input_list[i] < input_list[min_index]:
-                min_index = i
-        result.append(input_list[min_index])
-        input_list.pop(min_index)
-    return result
+    for i in range(input_list.__len__()):
+        min_index = input_list.index(min(input_list[i:]))
+        input_list[i], input_list[min_index] = input_list[min_index], input_list[i]
+    return input_list
 
 
 if __name__ == '__main__':
 
-    array = list(np.random.randint(100, size=1000))
+    array = list(np.random.randint(100, size=30000))
 
     print("raw array:", array)
 
     print("bubble result:", bubble_sort(array))
-    print("insert result:", insert_sort(array))
+    print("selection result:", selection_sort(array))
