@@ -12,7 +12,7 @@ def timer(func: Callable):
         print("\n===================================")
         print("===================================")
         print("Function Name\t: %s" % func.__name__)
-        print("Used Time\t\t: %d ms" % (end - start))
+        print("Used Time\t\t: %.3f ms" % (end - start))
         print("===================================")
         print("===================================\n")
         return result
